@@ -4,7 +4,7 @@ import axios from "axios";
 import AddNewCustomerButton from "../Components/AddNewCustomerButton";
 
 const AllCustomersView = () => {
-  const [customers, setCustomers] = useState([]);
+  let [customers, setCustomers] = useState([]);
   const [show, setShow] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { loading, setLoading } = useContext(toggleContext);
@@ -13,13 +13,24 @@ const AllCustomersView = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://my.api.mockaroo.com/customers.json?key=e95894a0&size=50", {
+      .get("https://my.api.mockaroo.com/customers.json?key=e95894a0&size=10", {
         method: "get",
       })
       .then((response) => {
         // console.log(response.data);
         setLoading(false);
         // console.log('loading after', loading)
+
+        response.data = response.data.sort(function (a, b) {
+          if (a.last_name < b.last_name) {
+            return -1;
+          }
+          if (a.last_name > b.last_name) {
+            return 1;
+          }
+          return 0;
+        });
+        // console.log(response.data);
         setCustomers(response.data);
       })
       .catch((error) => {
