@@ -1,5 +1,6 @@
 {
   "name": "fw",
+  "homepage": "http://www.whataustinhasmade.com/fw-assess",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

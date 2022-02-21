@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { toggleContext } from "../Contexts/appContext";
 import "../App.scss";
 import girl from '../Images/girl.png'
@@ -16,7 +16,7 @@ const AddNewCustomerButton = () => {
         <div className="d-flex flex-column ">
           <div>
             <img
-              src={girl} alt="add-customer-image"
+              src={girl} alt=""
               width="65"
             />
           </div>

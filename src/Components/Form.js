@@ -5,7 +5,7 @@ import useForm from "../Hooks/useForm";
 import "../App.scss";
 
 const Form = () => {
-  const { toggle, setToggle } = useContext(toggleContext);
+  const { toggle } = useContext(toggleContext);
 
   const formLogin = () => {
     console.log("Callback function when form is submitted");
@@ -14,8 +14,6 @@ const Form = () => {
 
   const { handleChange, handleSubmit, customerInfo, errors } =
     useForm(formLogin);
-
-  console.log("customer number error", errors.customerNumber);
 
   return (
     <div className="form-container">

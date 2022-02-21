@@ -4,7 +4,7 @@ import axios from "axios";
 import { toggleContext } from "../Contexts/appContext";
 
 const useForm = (callback) => {
-  const { toggle, setToggle } = useContext(toggleContext);
+  const {  setToggle } = useContext(toggleContext);
   //Form values
   const [customerInfo, setCustomerInfo] = useState({
     customerNumber: "",
